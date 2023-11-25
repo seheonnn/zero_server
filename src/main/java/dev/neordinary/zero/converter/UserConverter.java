@@ -31,4 +31,11 @@ public class UserConverter {
                 .gender(user.getGender())
                 .build();
     }
+
+    public static UserResponse.UserBeverageRes toUserBeverageDto(UserEntity user) {
+        return UserResponse.UserBeverageRes.builder()
+                .user_id(user.getId())
+                .name(user.getName())
+                .build();
+    }
 }

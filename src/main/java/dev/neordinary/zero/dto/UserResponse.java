@@ -16,4 +16,14 @@ public class UserResponse {
         private Integer age;
         private Gender gender;
     }
+
+    @Builder
+    @AllArgsConstructor
+    @Getter @Setter
+    public static class UserBeverageRes {
+        private Long user_id;
+        private String name;
+        private Double sugar;
+        private Integer calorie;
+    }
 }
