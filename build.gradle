@@ -31,6 +31,19 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	implementation 'org.jsoup:jsoup:1.13.1'
+
+	// swagger
+//	implementation 'org.springdoc:springdoc-openapi-ui:1.6.15'
+//	implementation 'io.springfox:springfox-swagger2:2.9.2'
+//	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+
+	// spring3 swagger settings
+	// http://localhost:8080/swagger-ui/index.html#/
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2'
+
+	// S3 설정
+	implementation "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE"
+
 }
 
 tasks.named('bootBuildImage') {
@@ -40,3 +53,6 @@ tasks.named('bootBuildImage') {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+// jar 설정
+jar { enabled = false }
