@@ -29,10 +29,12 @@ public enum BaseResponseStatus implements BaseResponseStatusImpl {
      */
     INPUT_INVALID_VALUE(HttpStatus.BAD_REQUEST, "REQUEST_ERROR_001", "잘못된 요청입니다."),
     INVALID_ENUM(HttpStatus.BAD_REQUEST, "REQUEST_ERROR_002", "Enum 타입으로 변경할 수 없습니다."),
+    CANNOT_FIND_USER(HttpStatus.NOT_FOUND, "REQUEST_ERROR_003", "요청한 사용자를 찾을 수 없습니다."),
 
     // Product
     CRAWLING_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "PRODUCT_ERROR_001", "크롤링 서버와의 연결에 실패했습니다."),
     PRODUCT_INDEX_OUT_OF_RANGE(HttpStatus.BAD_REQUEST, "PRODUCT_ERROR_002", "제품 리스트의 끝입니다."),
+
 
     /**
      * 500 : 응답 실패
