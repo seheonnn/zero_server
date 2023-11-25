@@ -18,6 +18,8 @@ public class UserConverter {
                 .gender(userJoin.getGender())
                 .maxSugar(userJoin.calculateBMR() * 0.1 / 3.867)
                 .maxCalorie(userJoin.calculateBMR())
+                .purposeType(userJoin.getPurposeType())
+                .activityType(userJoin.getActivityType())
                 .build();
     }
 

@@ -26,6 +26,10 @@ public class UserEntity extends BaseEntity {
     private Gender gender;
     private Double maxSugar;
     private Double maxCalorie;
+    @Enumerated(EnumType.STRING)
+    private PurposeType purposeType;
+    @Enumerated(EnumType.STRING)
+    private ActivityType activityType;
 
 //    public static UserEntity createUser(String name, Integer height, Integer weight, Integer age, Gender gender) {
 //        return UserEntity.builder()
