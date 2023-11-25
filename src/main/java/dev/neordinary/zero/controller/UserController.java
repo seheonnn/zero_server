@@ -31,6 +31,11 @@ public class UserController {
         return BaseResponse.toResponseEntityContainsResult(noteService.createNote(userId, noteJoin));
     }
 
+    @GetMapping("/{userId}/note")
+    public NoteResponse.NoteJoinRes getNot(@PathVariable Long userId) {
+        return noteService.getNote(userId);
+    }
+
     @GetMapping("/{userId}/purpose")
     public ResponseEntity<BaseResponse> getPurpose(@PathVariable Long userId) {
         return BaseResponse.toResponseEntityContainsResult(userService.getPurpose(userId));

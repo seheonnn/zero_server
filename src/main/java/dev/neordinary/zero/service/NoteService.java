@@ -24,4 +24,9 @@ public class NoteService {
         NoteEntity newNote = NoteConverter.toNote(noteJoin, currentUser);
         return NoteConverter.toNoteDto(noteRepository.save(newNote));
     }
+
+    public NoteResponse.NoteJoinRes getNote(Long userId) {
+
+        return null;
+    }
 }
