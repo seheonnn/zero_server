@@ -74,7 +74,6 @@ public class ProductService {
                     try {
                         Document infoDoc = Jsoup.connect(productUrl).get();
                         Elements body = infoDoc.getAllElements();
-                        System.out.println(body.text());
                         productName = body.text().split(" ")[0] + " " + productName;
                         productSugar = getProductSugar(infoDoc);
                         productKcal = getProductKcal(infoDoc);

@@ -61,8 +61,13 @@ jobs:
           sudo docker rm zero-docker
           sudo docker rmi ${{ secrets.DOCKER_USERNAME }}/zero-docker
           sudo docker pull ${{ secrets.DOCKER_USERNAME }}/zero-docker
+
+          # redis
+          sudo docker stop my-redis
+          sudo docker rm my-redis
+          sudo docker rmi redis
         
-          sudo docker stop zero-docker
-          sudo docker rm zero-docker
-          sudo docker pull ${{ secrets.DOCKER_USERNAME }}/zero-docker
-          sudo docker run -it -d -p 8080:8080 --name zero-docker ${{ secrets.DOCKER_USERNAME }}/zero-docker
+          sudo docker pull redis
+          sudo docker network create my-network
+          sudo docker run --name my-redis --network my-network -d redis
+          sudo docker run -it -d -p 8080:8080 --name zero-docker -e TZ=Asia/Seoul --network my-network ${{ secrets.DOCKER_USERNAME }}/zero-docker
