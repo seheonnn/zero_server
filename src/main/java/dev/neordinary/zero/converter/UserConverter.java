@@ -23,7 +23,7 @@ public class UserConverter {
 
     public static UserResponse.UserJoinRes toUserDto(UserEntity user) {
         return UserResponse.UserJoinRes.builder()
-                .user_id(user.getId())
+                .user_id(user.getUser_id())
                 .name(user.getName())
                 .height(user.getHeight())
                 .weight(user.getWeight())
@@ -34,7 +34,7 @@ public class UserConverter {
 
     public static UserResponse.UserBeverageRes toUserBeverageDto(UserEntity user) {
         return UserResponse.UserBeverageRes.builder()
-                .user_id(user.getId())
+                .user_id(user.getUser_id())
                 .name(user.getName())
                 .build();
     }
