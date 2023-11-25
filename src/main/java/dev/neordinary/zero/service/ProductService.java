@@ -62,6 +62,7 @@ public class ProductService {
 
             try {
                 Document doc = Jsoup.connect(url).get();
+                try {Thread.sleep(1500);} catch (InterruptedException ignored) {}
                 Elements productLinks = doc.select("a.prominent");
 
                 for (Element link : productLinks) {
@@ -73,6 +74,7 @@ public class ProductService {
 
                     try {
                         Document infoDoc = Jsoup.connect(productUrl).get();
+                        try {Thread.sleep(1500);} catch (InterruptedException ignored) {}
                         Elements body = infoDoc.getAllElements();
                         productName = body.text().split(" ")[0] + " " + productName;
                         productSugar = getProductSugar(infoDoc);
