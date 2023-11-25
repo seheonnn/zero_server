@@ -17,6 +17,7 @@ public class UserConverter {
 
     public static UserResponse.UserJoinRes toUserDto(UserEntity user) {
         return UserResponse.UserJoinRes.builder()
+                .user_id(user.getId())
                 .name(user.getName())
                 .height(user.getHeight())
                 .weight(user.getWeight())
