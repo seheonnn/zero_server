@@ -44,6 +44,12 @@ dependencies {
 	// S3 설정
 	implementation "org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE"
 
+	// 캐싱
+	implementation "org.springframework.boot:spring-boot-starter-cache"
+
+	// Redis
+	implementation 'it.ozimov:embedded-redis:0.7.2'
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 }
 
 tasks.named('bootBuildImage') {
