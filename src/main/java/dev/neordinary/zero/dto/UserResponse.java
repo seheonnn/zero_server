@@ -1,7 +1,10 @@
 package dev.neordinary.zero.dto;
 
 import dev.neordinary.zero.domain.Gender;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 public class UserResponse {
 
