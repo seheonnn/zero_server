@@ -27,6 +27,11 @@ public class UserService {
         return UserConverter.toUserBeverageDto(userEntity);
     }
 
+    public int getPurpose(Long userId) {
+        UserEntity userEntity = userRepository.findById(userId).orElseThrow(() -> null);
+        return userEntity.getMaxSugar().intValue();
+    }
+
 //    public UserResponse.UserJoinRes joinV2(UserReqRecord.UserJoin userJoinRecord) {
 //
 //        return UserConverter.toUserDto(userRepository.save(userJoinRecord.toUser()));

@@ -10,24 +10,30 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     private final UserService userService;
     private final NoteService noteService;
 
-    @PostMapping("/api/v1/user")
+    @PostMapping("")
     public UserResponse.UserJoinRes join(@RequestBody UserRequest.UserJoin userJoin) {
         return userService.join(userJoin);
     }
 
-    @GetMapping("/api/v1/user/{userId}")
+    @GetMapping("/{userId}")
     public UserResponse.UserBeverageRes showUserBeverage(@PathVariable Long userId) {
         return userService.showUserBeverage(userId);
     }
 
-    @PostMapping("/api/v1/user/{userId}/note")
+    @PostMapping("/{userId}/note")
     public NoteResponse.NoteJoinRes createNote(@PathVariable Long userId, @RequestBody NoteRequest.NoteJoin noteJoin) {
         return noteService.createNote(userId, noteJoin);
+    }
+
+    @GetMapping("/{userId}/purpose")
+    public int getPurpose(@PathVariable Long userId) {
+        return userService.getPurpose(userId);
     }
 
 //    @PostMapping("/api/v2/user")
