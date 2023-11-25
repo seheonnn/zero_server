@@ -13,6 +13,7 @@ public class UserResponse {
         private String name;
         private Integer height;
         private Integer weight;
+        private Integer age;
         private Gender gender;
     }
 }
