@@ -1,9 +1,8 @@
 package dev.neordinary.zero.controller;
 
 import dev.neordinary.zero.base.BaseResponse;
-import dev.neordinary.zero.dto.NoteRequest;
-import dev.neordinary.zero.dto.NoteResponse;
-import dev.neordinary.zero.dto.UserRequest;
+import dev.neordinary.zero.converter.NoteConverter;
+import dev.neordinary.zero.dto.*;
 import dev.neordinary.zero.service.NoteService;
 import dev.neordinary.zero.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -34,8 +33,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/note")
-    public NoteResponse.NoteJoinRes getNot(@PathVariable Long userId) {
-        return noteService.getNote(userId);
+    public ResponseEntity<BaseResponse> getNot(@PathVariable Long userId) {
+        return BaseResponse.toResponseEntityContainsResult(noteService.getNote(userId));
     }
 
     @GetMapping("/{userId}/purpose")

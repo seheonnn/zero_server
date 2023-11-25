@@ -26,4 +26,14 @@ public class NoteConverter {
                 .productSize(note.getCapacity())
                 .build();
     }
+
+    public static NoteResponse.GetNoteRes toGetNoteDto(UserEntity user, String totalKcal, String totalSugar, int[] completedDate) {
+        return NoteResponse.GetNoteRes.builder()
+                .user_id(user.getUser_id())
+                .username(user.getName())
+                .totalKcal(totalKcal)
+                .totalSugar(totalSugar)
+                .completedDate(completedDate)
+                .build();
+    }
 }
