@@ -8,20 +8,26 @@ import dev.neordinary.zero.dto.UserRequest;
 import dev.neordinary.zero.dto.UserResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-    public UserResponse.UserJoinRes showDummy() {
-        UserEntity dummyUser = userRepository.findById(1L).orElseThrow(() -> null);
-        return UserConverter.toUserDto(dummyUser);
+    public UserResponse.UserBeverageRes showDummy() {
+        return UserConverter.toUserBeverageDto(userRepository.save(UserEntity.createDummyUser()));
     }
 
     public UserResponse.UserJoinRes join(UserRequest.UserJoin userJoin) {
         UserEntity newUser = UserConverter.toUser(userJoin);
         return UserConverter.toUserDto(userRepository.save(newUser));
+    }
+
+    @Transactional
+    public UserResponse.UserBeverageRes showUserBeverage(Long userId) {
+        UserEntity userEntity = userRepository.findById(userId).orElseThrow(() -> null);
+        return UserConverter.toUserBeverageDto(userEntity);
     }
 
 //    public UserResponse.UserJoinRes joinV2(UserReqRecord.UserJoin userJoinRecord) {

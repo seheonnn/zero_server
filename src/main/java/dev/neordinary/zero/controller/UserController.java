@@ -7,10 +7,7 @@ import dev.neordinary.zero.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -19,12 +16,17 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/api/v1/user-dummy")
-    public UserResponse.UserJoinRes showDummy() {
+    public UserResponse.UserBeverageRes showDummy() {
         return userService.showDummy();
     }
     @PostMapping("/api/v1/user")
     public UserResponse.UserJoinRes join(@RequestBody UserRequest.UserJoin userJoin) {
         return userService.join(userJoin);
+    }
+
+    @GetMapping("/api/v1/user{userId}")
+    public UserResponse.UserBeverageRes showUserBeverage(@PathVariable Long userId) {
+        return userService.showUserBeverage(userId);
     }
 
 //    @PostMapping("/api/v2/user")
