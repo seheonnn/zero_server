@@ -9,21 +9,21 @@ public class NoteConverter {
 
     public static NoteEntity toNote(NoteRequest.NoteJoin noteJoin, UserEntity user) {
         return NoteEntity.builder()
-                .name(noteJoin.getName())
+                .name(noteJoin.getProductName())
                 .user(user)
-                .sugar(noteJoin.getSugar())
-                .calorie(noteJoin.getCalorie())
-                .capacity(noteJoin.getCapacity())
+                .sugar(noteJoin.getProductSugar())
+                .calorie(noteJoin.getProductKcal())
+                .capacity(noteJoin.getProductSize())
                 .build();
     }
 
     public static NoteResponse.NoteJoinRes toNoteDto(NoteEntity note) {
         return NoteResponse.NoteJoinRes.builder()
                 .user_id(note.getUser().getUser_id())
-                .name(note.getName())
-                .sugar(note.getSugar())
-                .calorie(note.getCalorie())
-                .capacity(note.getCapacity())
+                .productName(note.getName())
+                .productSugar(note.getSugar())
+                .productKcal(note.getCalorie())
+                .productSize(note.getCapacity())
                 .build();
     }
 }
