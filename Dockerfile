@@ -4,6 +4,6 @@ FROM openjdk:17-alpine
 WORKDIR /usr/src/app
 
 # 빌드한 jar 파일을 Docker 컨테이너 내부로 옮겨줌.
-COPY ./build/libs/zero_server-0.0.1-SNAPSHOT.jar zero_server-0.0.1-SNAPSHOT.jar
+COPY ./build/libs/zero-0.0.1-SNAPSHOT.jar zero-0.0.1-SNAPSHOT.jar
 
-CMD ["java","-jar","zero_server-0.0.1-SNAPSHOT.jar"]
+CMD ["java","-jar","zero-0.0.1-SNAPSHOT.jar"]
