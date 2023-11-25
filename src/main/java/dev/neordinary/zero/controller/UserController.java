@@ -7,6 +7,7 @@ import dev.neordinary.zero.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,6 +18,10 @@ public class UserController {
 
     private final UserService userService;
 
+    @GetMapping("/api/v1/user-dummy")
+    public UserResponse.UserJoinRes showDummy() {
+        return userService.showDummy();
+    }
     @PostMapping("/api/v1/user")
     public UserResponse.UserJoinRes join(@RequestBody UserRequest.UserJoin userJoin) {
         return userService.join(userJoin);

@@ -14,6 +14,10 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     private final UserRepository userRepository;
+    public UserResponse.UserJoinRes showDummy() {
+        UserEntity dummyUser = userRepository.findById(1L).orElseThrow(() -> null);
+        return UserConverter.toUserDto(dummyUser);
+    }
 
     public UserResponse.UserJoinRes join(UserRequest.UserJoin userJoin) {
         UserEntity newUser = UserConverter.toUser(userJoin);
