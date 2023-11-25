@@ -33,6 +33,7 @@ public enum BaseResponseStatus implements BaseResponseStatusImpl {
     // Product
     CRAWLING_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "PRODUCT_ERROR_001", "크롤링 서버와의 연결에 실패했습니다."),
     PRODUCT_INDEX_OUT_OF_RANGE(HttpStatus.BAD_REQUEST, "PRODUCT_ERROR_002", "제품 리스트의 끝입니다."),
+    PRODUCT_NOT_FOUND(HttpStatus.NOT_FOUND, "PRODUCT_ERROR_003", "검색한 제품이 존재하지 않습니다."),
 
     /**
      * 500 : 응답 실패

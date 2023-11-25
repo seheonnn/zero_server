@@ -97,6 +97,15 @@ public class ProductService {
             pageId++;
         }
         addProductList(keyword, productList);
+
+        if (productList.isEmpty())
+            throw new BaseException(BaseResponseStatus.PRODUCT_NOT_FOUND);
+
+        if (MAX_PRODUCT_PER_VIEW >= productList.size())
+            return ProductResponse.builder()
+                    .productInfoList(productList.subList(0, productList.size()))
+                    .lastProductId(productList.size() - 1)
+                    .build();
         return ProductResponse.builder()
                 .productInfoList(productList.subList(0, MAX_PRODUCT_PER_VIEW))
                 .lastProductId(MAX_PRODUCT_PER_VIEW - 1)
