@@ -1,7 +1,9 @@
 package dev.neordinary.zero.controller;
 
 import dev.neordinary.zero.base.BaseResponse;
-import dev.neordinary.zero.dto.*;
+import dev.neordinary.zero.dto.NoteRequest;
+import dev.neordinary.zero.dto.NoteResponse;
+import dev.neordinary.zero.dto.UserRequest;
 import dev.neordinary.zero.service.NoteService;
 import dev.neordinary.zero.service.UserService;
 import lombok.RequiredArgsConstructor;

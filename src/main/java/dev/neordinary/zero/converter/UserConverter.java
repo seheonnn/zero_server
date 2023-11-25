@@ -1,11 +1,8 @@
 package dev.neordinary.zero.converter;
 
-import dev.neordinary.zero.domain.Gender;
 import dev.neordinary.zero.domain.UserEntity;
 import dev.neordinary.zero.dto.UserRequest;
 import dev.neordinary.zero.dto.UserResponse;
-
-import static dev.neordinary.zero.domain.Gender.*;
 
 public class UserConverter {
 

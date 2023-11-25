@@ -6,7 +6,7 @@ import dev.neordinary.zero.domain.PurposeType;
 import lombok.Getter;
 import lombok.Setter;
 
-import static dev.neordinary.zero.domain.Gender.*;
+import static dev.neordinary.zero.domain.Gender.MAN;
 
 public class UserRequest {
 
