@@ -7,6 +7,7 @@ public class NoteRequest {
 
     @Getter @Setter
     public static class NoteJoin {
+        private String name;
         private Double sugar;
         private Integer calorie;
         private Integer capacity;

@@ -12,6 +12,7 @@ public class NoteResponse {
     @Getter @Setter
     public static class NoteJoinRes {
         private Long user_id;
+        private String name;
         private Double sugar;
         private Integer calorie;
         private Integer capacity;

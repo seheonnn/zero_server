@@ -9,6 +9,7 @@ public class NoteConverter {
 
     public static NoteEntity toNote(NoteRequest.NoteJoin noteJoin, UserEntity user) {
         return NoteEntity.builder()
+                .name(noteJoin.getName())
                 .user(user)
                 .sugar(noteJoin.getSugar())
                 .calorie(noteJoin.getCalorie())
@@ -19,6 +20,7 @@ public class NoteConverter {
     public static NoteResponse.NoteJoinRes toNoteDto(NoteEntity note) {
         return NoteResponse.NoteJoinRes.builder()
                 .user_id(note.getUser().getUser_id())
+                .name(note.getName())
                 .sugar(note.getSugar())
                 .calorie(note.getCalorie())
                 .capacity(note.getCapacity())
