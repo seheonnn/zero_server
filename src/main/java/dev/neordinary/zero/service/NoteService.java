@@ -48,10 +48,10 @@ public class NoteService {
         String totalSugar = split[1];
 
         List<Integer> res = noteRepository.findTotal(userId, day);
-        Boolean[] completedDate = new Boolean[7];
-        for (int idx = 0; idx < 7; idx++) {
+        int[] completedDate = new int[7];
+        for (int idx = 0; idx < res.size(); idx++) {
             if (res.get(idx) < currentUser.getMaxSugar()) {
-                completedDate[idx] = true;
+                completedDate[idx] = 1;
             }
         }
         return NoteConverter.toGetNoteDto(currentUser, totalKcal, totalSugar, completedDate);

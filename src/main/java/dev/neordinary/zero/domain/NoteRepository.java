@@ -22,9 +22,9 @@ public interface NoteRepository extends JpaRepository<NoteEntity, Long> {
 
     @Query(
             value =
-                    "select t.SUM(sugar)  " +
-                            "from (select SUM(sugar), created_at  from note_entity where user_id = :user_id group by created_at) t " +
-                            "order by created_at desc limit day ; ",
+                    "select t.res " +
+                            "from (select SUM(sugar) res, created_at  from note_entity where user_id = :user_id group by created_at) t " +
+                            "order by created_at desc limit :day ; ",
             nativeQuery = true
     )
     List<Integer> findTotal(@Param("user_id") Long user_id, @Param("day") Integer day);
