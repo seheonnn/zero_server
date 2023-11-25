@@ -36,9 +36,10 @@ public class NoteService {
         return NoteConverter.toNoteDto(noteRepository.save(newNote));
     }
 
-    public Object getNote(Long userId) {
+    public NoteResponse.GetNoteRes getNote(Long userId) {
         UserEntity currentUser = userRepository.findById(userId).orElseThrow(() -> new BaseException(BaseResponseStatus.CANNOT_FIND_USER));
         LocalDate today = LocalDate.now();
+        int day = today.getDayOfWeek().getValue();
         List<Object[]> results = noteRepository.findKcalAndSugarByDay(userId, today.toString());
 
         // QueryDSL 필요성
@@ -46,17 +47,13 @@ public class NoteService {
         String totalKcal = split[0];
         String totalSugar = split[1];
 
-        NoteResponse.GetNoteRes NoteRes = NoteConverter.toGetNoteDto(currentUser, totalKcal, totalSugar);
-
-        List<Object[]> totalDatas = noteRepository.findTotal(currentUser.getUser_id(), today.minusDays(7).toString(), today.toString());
-
-        List<Object> completedDateList = new ArrayList<>();
-        totalDatas.stream().map(totalData -> {
-            if ((Double) totalData[0] <= currentUser.getMaxSugar())
-                completedDateList.add(totalData[1]);
-            return NoteRes;
-        }).collect(Collectors.toList());
-        NoteRes.setCompletedDate(completedDateList);
-        return NoteRes;
+        List<Integer> res = noteRepository.findTotal(userId, day);
+        Boolean[] completedDate = new Boolean[7];
+        for (int idx = 0; idx < 7; idx++) {
+            if (res.get(idx) < currentUser.getMaxSugar()) {
+                completedDate[idx] = true;
+            }
+        }
+        return NoteConverter.toGetNoteDto(currentUser, totalKcal, totalSugar, completedDate);
     }
 }

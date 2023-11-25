@@ -27,12 +27,13 @@ public class NoteConverter {
                 .build();
     }
 
-    public static NoteResponse.GetNoteRes toGetNoteDto(UserEntity user, String totalKcal, String totalSugar) {
+    public static NoteResponse.GetNoteRes toGetNoteDto(UserEntity user, String totalKcal, String totalSugar, Boolean[] completedDate) {
         return NoteResponse.GetNoteRes.builder()
                 .user_id(user.getUser_id())
                 .username(user.getName())
                 .totalKcal(totalKcal)
                 .totalSugar(totalSugar)
+                .completedDate(completedDate)
                 .build();
     }
 }

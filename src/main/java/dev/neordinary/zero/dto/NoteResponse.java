@@ -28,6 +28,6 @@ public class NoteResponse {
         private String username;
         private Object totalKcal;
         private Object totalSugar;
-        private List<Object> completedDate;
+        private Boolean[] completedDate;
     }
 }
