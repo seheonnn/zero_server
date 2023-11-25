@@ -9,6 +9,7 @@ public class UserResponse {
     @AllArgsConstructor
     @Getter @Setter
     public static class UserJoinRes {
+        private Long user_id;
         private String name;
         private Integer height;
         private Integer weight;

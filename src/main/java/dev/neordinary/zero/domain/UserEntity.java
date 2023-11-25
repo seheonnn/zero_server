@@ -21,4 +21,13 @@ public class UserEntity {
     private Gender gender;
     private Double maxSugar;
     private Integer maxCalorie;
+
+    public static UserEntity createUser(String name, Integer height, Integer weight, Gender gender) {
+        return UserEntity.builder()
+                .name(name)
+                .height(height)
+                .weight(weight)
+                .gender(gender)
+                .build();
+    }
 }
