@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/{userId}/note")
-    public ResponseEntity<BaseResponse> getNot(@PathVariable Long userId) {
+    public ResponseEntity<BaseResponse> getNote(@PathVariable Long userId) {
         return BaseResponse.toResponseEntityContainsResult(noteService.getNote(userId));
     }
 
