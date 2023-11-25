@@ -31,7 +31,7 @@ public class ProductService {
     private static final String PRODUCT_LIST_URL = MAIN_URL + "/칼로리-영양소/search?q=";
     private static final String PAGE = "&pg=";
     private static final int MAX_PRODUCT_PER_PAGE = 10;
-    private static final int MAX_PRODUCT_PER_VIEW = 5;
+    private static final int MAX_PRODUCT_PER_VIEW = 10;
 
     public ProductResponse getProductResponse(String keyword, Integer lastProductId) {
         Optional<Product> product = findProductList(keyword);
