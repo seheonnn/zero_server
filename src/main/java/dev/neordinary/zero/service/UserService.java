@@ -15,9 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserService {
 
     private final UserRepository userRepository;
-    public UserResponse.UserBeverageRes showDummy() {
-        return UserConverter.toUserBeverageDto(userRepository.save(UserEntity.createDummyUser()));
-    }
 
     public UserResponse.UserJoinRes join(UserRequest.UserJoin userJoin) {
         UserEntity newUser = UserConverter.toUser(userJoin);
