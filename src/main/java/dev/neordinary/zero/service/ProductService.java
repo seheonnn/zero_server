@@ -62,6 +62,7 @@ public class ProductService {
 
             try {
                 Document doc = Jsoup.connect(url).get();
+                try {Thread.sleep(1500);} catch (InterruptedException ignored) {}
                 Elements productLinks = doc.select("a.prominent");
 
                 for (Element link : productLinks) {
@@ -73,6 +74,7 @@ public class ProductService {
 
                     try {
                         Document infoDoc = Jsoup.connect(productUrl).get();
+                        try {Thread.sleep(1500);} catch (InterruptedException ignored) {}
                         Elements body = infoDoc.getAllElements();
                         productName = body.text().split(" ")[0] + " " + productName;
                         productSugar = getProductSugar(infoDoc);
@@ -97,6 +99,15 @@ public class ProductService {
             pageId++;
         }
         addProductList(keyword, productList);
+
+        if (productList.isEmpty())
+            throw new BaseException(BaseResponseStatus.PRODUCT_NOT_FOUND);
+
+        if (MAX_PRODUCT_PER_VIEW >= productList.size())
+            return ProductResponse.builder()
+                    .productInfoList(productList.subList(0, productList.size()))
+                    .lastProductId(productList.size() - 1)
+                    .build();
         return ProductResponse.builder()
                 .productInfoList(productList.subList(0, MAX_PRODUCT_PER_VIEW))
                 .lastProductId(MAX_PRODUCT_PER_VIEW - 1)
