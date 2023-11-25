@@ -31,6 +31,11 @@ public class UserController {
         return noteService.createNote(userId, noteJoin);
     }
 
+    @GetMapping("/{userId}/note")
+    public NoteResponse.NoteJoinRes getNot(@PathVariable Long userId) {
+        return noteService.getNote(userId);
+    }
+
     @GetMapping("/{userId}/purpose")
     public int getPurpose(@PathVariable Long userId) {
         return userService.getPurpose(userId);
