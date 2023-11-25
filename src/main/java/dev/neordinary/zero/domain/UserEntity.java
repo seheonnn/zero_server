@@ -22,16 +22,6 @@ public class UserEntity extends BaseEntity {
     private Double maxSugar;
     private Double maxCalorie;
 
-    public static UserEntity createDummyUser() {
-        return UserEntity.builder()
-                .name("User")
-                .height(0)
-                .weight(0)
-                .age(0)
-                .gender(Gender.MAN)
-                .build();
-    }
-
 //    public static UserEntity createUser(String name, Integer height, Integer weight, Integer age, Gender gender) {
 //        return UserEntity.builder()
 //                .name(name)

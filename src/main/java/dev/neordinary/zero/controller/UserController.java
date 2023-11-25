@@ -15,16 +15,12 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/api/v1/user-dummy")
-    public UserResponse.UserBeverageRes showDummy() {
-        return userService.showDummy();
-    }
     @PostMapping("/api/v1/user")
     public UserResponse.UserJoinRes join(@RequestBody UserRequest.UserJoin userJoin) {
         return userService.join(userJoin);
     }
 
-    @GetMapping("/api/v1/user{userId}")
+    @GetMapping("/api/v1/user/{userId}")
     public UserResponse.UserBeverageRes showUserBeverage(@PathVariable Long userId) {
         return userService.showUserBeverage(userId);
     }
