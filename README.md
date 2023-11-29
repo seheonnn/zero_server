@@ -1,5 +1,8 @@
 # zero_server
 
+## [5th Ne(o)rdinary] Hackathon Team N 백엔드 1등🥇
+
+
 ## Commit Message Convention
 
 |    Type     | Description  |
